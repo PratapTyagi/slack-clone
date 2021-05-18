@@ -5,8 +5,10 @@ function App() {
   return (
     <div className="app">
       <Header />
-      <Sidebar />
-      <ChatScreen />
+      <div className="app__main">
+        <Sidebar />
+        <ChatScreen />
+      </div>
     </div>
   );
 }

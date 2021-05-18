@@ -1,5 +1,9 @@
 body {
   background-color: black;
-  color: whitesmoke;
-  --slack-color: #431c44;
+  color: white;
+  --slack-color: #3f0f40;
+}
+
+.app__main {
+  display: flex;
 }
