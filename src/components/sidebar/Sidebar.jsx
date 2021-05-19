@@ -43,11 +43,7 @@ function Sidebar() {
         <Create />
       </div>
 
-      {channels.map(({ id, name }) => (
-        <SidebarOption key={id} Icon={InsertComment} title={name} />
-      ))}
-
-      <SidebarOption Icon={InsertComment} title="Title" />
+      <SidebarOption addChannelOption Icon={InsertComment} title="Title" />
       <SidebarOption Icon={Inbox} title="Inbox" />
       <SidebarOption Icon={Drafts} title="Drafts" />
       <SidebarOption Icon={BookmarkBorder} title="BookmarkBorder" />
@@ -59,6 +55,10 @@ function Sidebar() {
       <SidebarOption Icon={ExpandMore} title="ExpandMore" />
       <hr />
       <SidebarOption Icon={Add} title="Add" />
+
+      {channels.map(({ id, name }) => (
+        <SidebarOption key={id} id={id} Icon={InsertComment} title={name} />
+      ))}
     </div>
   );
 }

@@ -1,9 +1,11 @@
 body {
-  background-color: black;
+  background-color: white;
   color: white;
   --slack-color: #3f0f40;
+  overflow: hidden;
 }
 
 .app__main {
   display: flex;
+  height: 100%;
 }
