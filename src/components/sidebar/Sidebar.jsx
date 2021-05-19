@@ -30,8 +30,6 @@ function Sidebar() {
     );
   }, []);
 
-  console.log(channels);
-
   return (
     <div className="sidebar">
       <div className="sidebar__header">

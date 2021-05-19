@@ -1,7 +1,7 @@
 import "./ChatScreen.css";
 function ChatScreen() {
   return (
-    <div>
+    <div className="chatScreen">
       <div>Hello i am the Chat Screen</div>
     </div>
   );
