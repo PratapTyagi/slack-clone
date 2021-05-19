@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import {
   Create,
   FiberManualRecord,
@@ -12,9 +13,25 @@ import {
   ExpandMore,
   Add,
 } from "@material-ui/icons";
+
+import { db } from "../../firebase";
 import "./Sidebar.css";
 import SidebarOption from "./SidebarOption";
 function Sidebar() {
+  const [channels, setchannels] = useState([]);
+  useEffect(() => {
+    db.collection("rooms").onSnapshot((snapshot) =>
+      setchannels(
+        snapshot.docs.map((doc) => ({
+          id: doc.id,
+          name: doc.data().name,
+        }))
+      )
+    );
+  }, []);
+
+  console.log(channels);
+
   return (
     <div className="sidebar">
       <div className="sidebar__header">
@@ -27,6 +44,10 @@ function Sidebar() {
         </div>
         <Create />
       </div>
+
+      {channels.map(({ id, name }) => (
+        <SidebarOption key={id} Icon={InsertComment} title={name} />
+      ))}
 
       <SidebarOption Icon={InsertComment} title="Title" />
       <SidebarOption Icon={Inbox} title="Inbox" />
