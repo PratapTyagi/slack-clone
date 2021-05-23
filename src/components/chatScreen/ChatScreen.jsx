@@ -5,6 +5,7 @@ import { db } from "../../firebase";
 import { InfoOutlined, StarBorderOutlined } from "@material-ui/icons";
 
 import Message from "./Message";
+import ChatInput from "./ChatInput";
 import "./ChatScreen.css";
 
 function ChatScreen() {
@@ -55,6 +56,8 @@ function ChatScreen() {
           />
         ))}
       </div>
+
+      <ChatInput channelName={roomDetails?.name} channelId={roomId} />
     </div>
   );
 }
