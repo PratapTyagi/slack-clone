@@ -15,9 +15,15 @@ import {
 } from "@material-ui/icons";
 
 import { db } from "../../firebase";
+import { useStateValue } from "../../context/StateProvider";
+
 import "./Sidebar.css";
+
 import SidebarOption from "./SidebarOption";
 function Sidebar() {
+  const [{ user }] = useStateValue();
+  console.log(user);
+
   const [channels, setchannels] = useState([]);
   useEffect(() => {
     db.collection("rooms").onSnapshot((snapshot) =>
@@ -37,7 +43,7 @@ function Sidebar() {
           <h2>Group Name</h2>
           <h3>
             <FiberManualRecord />
-            Username
+            {user.displayName}
           </h3>
         </div>
         <Create />
